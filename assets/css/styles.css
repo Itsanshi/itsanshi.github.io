@@ -499,9 +499,10 @@ body.light-theme {
 }
 
 .skills__box {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
   justify-content: center;
-  column-gap: 2.5rem;
 }
 
 .skills__group {
@@ -512,7 +513,23 @@ body.light-theme {
 
 .skills__data {
   display: flex;
+  align-items: center;
   column-gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.skills__data:hover {
+  transform: translateY(-2px);
+  background-color: rgba(var(--first-hue), var(--sat), var(--lig), 0.1);
+}
+
+.skills__data img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 .skills .bxs-badge-check {
@@ -528,6 +545,8 @@ body.light-theme {
 
 .skills__level {
   font-size: var(--small-font-size);
+  text-align: center;
+  margin-top: 0.25rem;
 }
 
 /*=============== SERVICES ===============*/
@@ -913,7 +932,7 @@ body.light-theme {
 
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 435px) {
   .nav__menu {
     padding: 1rem 1.5rem;
   }
@@ -936,7 +955,26 @@ body.light-theme {
   }
 
   .skills__box {
-    column-gap: 1rem;
+    grid-template-columns: 2fr;
+    gap: 1rem;
+  }
+
+  .skills__group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .skills__data {
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .skills__data img {
+    width: 32px;
+    height: 32px;
   }
 
   .skills__name {
@@ -948,7 +986,7 @@ body.light-theme {
   }
 
   .services__container {
-    grid-template-columns: 145px;
+    grid-template-columns: 145px; 
     justify-content: center;
   }
 
@@ -961,7 +999,28 @@ body.light-theme {
   }
 }
 
-@media screen and (min-width: 435px) {
+/* @media screen and (min-width: 435px) {
+  .skills__box {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .skills__data {
+    flex-direction: row;
+    text-align: left;
+  }
+
+  .skills__group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .skills__data img {
+    width: 40px;
+    height: 40px;
+  }
+
   .work__container {
     justify-content: center;
     grid-template-columns: repeat(2, max-content);
@@ -970,7 +1029,7 @@ body.light-theme {
   .work__img {
     width: 165px;
   }
-}
+} */
 
 /* For medium devices */
 @media screen and (min-width: 630px) {
@@ -1001,18 +1060,19 @@ body.light-theme {
   }
   
   .skills__content {
-    padding: 4rem 8.8rem;
-    min-width: 10rem;
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
   }
 
+  .skills__box {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
 
   .skills__title {
     font-size: var(--h3-font-size);
     margin-bottom: 1.5rem;
-  }
-
-  .skills__box {
-    column-gap: 5.5rem;
   }
 
   .services__container {
@@ -1083,6 +1143,26 @@ body.light-theme {
     justify-content: center;
   }
 } */
+
+/* For tablets in landscape */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .skills__box {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .skills__content {
+    padding: 2.5rem 3rem;
+    max-width: 900px;
+  }
+
+  .skills__data img {
+    width: 44px;
+    height: 44px;
+  }
+
+
+}
 
 /* For large devices */
 @media screen and (min-width: 992px) {
@@ -1162,6 +1242,25 @@ body.light-theme {
     column-gap: 3rem;
   } */
 
+  .skills__content {
+    padding: 3rem 4rem;
+    max-width: 1000px;
+  }
+
+  .skills__box {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2.5rem;
+  }
+
+  .skills__data {
+    padding: 1rem;
+  }
+
+  .skills__data img {
+    width: 48px;
+    height: 48px;
+  }
+
   .skills__title {
     margin-bottom: 3.5rem;
   }
@@ -1225,3 +1324,29 @@ body.light-theme {
   }
 }
 
+/* For extra large devices */
+@media screen and (min-width: 1200px) {
+  .skills__content {
+    padding: 4rem 6rem;
+    max-width: 1200px;
+  }
+
+  .skills__box {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 3rem;
+  }
+
+  .skills__data {
+    padding: 1.5rem;
+    border-radius: 1rem;
+  }
+
+  .skills__data img {
+    width: 56px;
+    height: 56px;
+  }
+
+  .skills__level {
+    font-size: var(--normal-font-size);
+  }
+}
