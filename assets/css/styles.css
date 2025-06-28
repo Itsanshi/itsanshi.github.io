@@ -502,6 +502,9 @@ body.light-theme {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
   justify-content: center;
 }
 
@@ -514,7 +517,23 @@ body.light-theme {
 .skills__data {
   display: flex;
   align-items: center;
+  align-items: center;
   column-gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.skills__data:hover {
+  transform: translateY(-2px);
+  background-color: rgba(var(--first-hue), var(--sat), var(--lig), 0.1);
+}
+
+.skills__data img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  flex-shrink: 0;
   padding: 0.5rem;
   border-radius: 0.5rem;
   transition: transform 0.3s ease;
@@ -545,6 +564,8 @@ body.light-theme {
 
 .skills__level {
   font-size: var(--small-font-size);
+  text-align: center;
+  margin-top: 0.25rem;
   text-align: center;
   margin-top: 0.25rem;
 }
@@ -1063,8 +1084,15 @@ body.light-theme {
     padding: 2rem;
     max-width: 800px;
     margin: 0 auto;
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
   }
 
+  .skills__box {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
   .skills__box {
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
@@ -1261,6 +1289,25 @@ body.light-theme {
     height: 48px;
   }
 
+  .skills__content {
+    padding: 3rem 4rem;
+    max-width: 1000px;
+  }
+
+  .skills__box {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2.5rem;
+  }
+
+  .skills__data {
+    padding: 1rem;
+  }
+
+  .skills__data img {
+    width: 48px;
+    height: 48px;
+  }
+
   .skills__title {
     margin-bottom: 3.5rem;
   }
@@ -1324,6 +1371,32 @@ body.light-theme {
   }
 }
 
+/* For extra large devices */
+@media screen and (min-width: 1200px) {
+  .skills__content {
+    padding: 4rem 6rem;
+    max-width: 1200px;
+  }
+
+  .skills__box {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 3rem;
+  }
+
+  .skills__data {
+    padding: 1.5rem;
+    border-radius: 1rem;
+  }
+
+  .skills__data img {
+    width: 56px;
+    height: 56px;
+  }
+
+  .skills__level {
+    font-size: var(--normal-font-size);
+  }
+}
 /* For extra large devices */
 @media screen and (min-width: 1200px) {
   .skills__content {
